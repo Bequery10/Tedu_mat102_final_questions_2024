@@ -8,9 +8,11 @@ sudo apt-get update
 sudo apt-get install -y ncat
 sudo apt-get install -y ufw
 sudo ufw enable
-sudo ufw allow 12345/tcp
+sudo ufw allow 50000/tcp
+sudo ufw allow out to 192.168.64.1 port 50000
+#sudo ufw status
 
 while true; do
-    tail -f log.txt | ncat 192.168.64.1 12345
+    tail -f log.txt | ncat 192.168.64.1 50000
     sleep 1
 done
