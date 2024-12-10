@@ -1,5 +1,5 @@
 #!/bin/bash
-cd encrpytion_toold
+cd encrpytion_tool
 sudo apt-get update
 sudo apt-get install -y python3
 sudo apt-get install -y python3-pip
