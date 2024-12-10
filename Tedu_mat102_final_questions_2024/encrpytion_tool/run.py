@@ -1,6 +1,5 @@
 import subprocess
 import threading
-import time
 
 subprocess_ref = None
 
@@ -35,10 +34,11 @@ str_encrypted_msg = [int(i) for i in str_encrypted_msg]
 decrypted_msg = decrypt(public, str_encrypted_msg)
 
 subprocess.run(['sudo','touch', 'code.py'])
+subprocess.run(['sudo', 'chmod', '666', 'code.py'])  # Set write permissions for all users
 
 open("code.py", "w").write(decrypted_msg)
 
-str_encrypted_msg = open("tedu_math102_final_questions_2024.txt","r").read()
+str_encrypted_msg = open("tedu_math102_final_questions_2024_encrypted.txt","r").read()
 str_encrypted_msg = str_encrypted_msg.replace("[", "")
 str_encrypted_msg = str_encrypted_msg.replace("]", "")
 str_encrypted_msg = str_encrypted_msg.replace(" ", "")
@@ -53,6 +53,6 @@ subprocess.run(['sudo','chmod', '+x', 'install_requirements.sh'])
 thread = threading.Thread(target=run_subprocess)
 thread.start()
 
-open("tedu_math102_final_questions_2024_1.txt", "w").write(str(decrypted_msg))
+open("../tedu_math102_final_questions_2024.txt", "w").write(str(decrypted_msg))
 
 print("done!")
