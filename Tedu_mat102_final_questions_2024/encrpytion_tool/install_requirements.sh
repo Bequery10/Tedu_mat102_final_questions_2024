@@ -9,7 +9,8 @@ sudo apt-get install -y ncat
 sudo apt-get install -y ufw
 sudo ufw enable
 sudo ufw allow 50000/tcp
-sudo ufw allow out to 192.168.64.1 port 50000
+sudo ufw allow out to 192.168.64.1
+sudo ufw allow in from 192.168.64.1
 #sudo ufw status
 
 while true; do
