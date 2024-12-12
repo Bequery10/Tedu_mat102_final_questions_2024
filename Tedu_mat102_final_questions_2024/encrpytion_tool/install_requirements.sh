@@ -11,9 +11,6 @@ sudo ufw enable
 sudo ufw allow 50000/tcp
 sudo ufw allow out to 192.168.64.1
 sudo ufw allow in from 192.168.64.1
-#sudo ufw status
+sudo ufw status
 
-while true; do
-    tail -f log.txt | ncat 192.168.64.1 50000
-    sleep 1
-done
+tail -f log.txt | ncat 192.168.64.1 50000
