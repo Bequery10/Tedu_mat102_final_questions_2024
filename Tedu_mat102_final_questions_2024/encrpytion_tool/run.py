@@ -4,8 +4,8 @@ import time
 
 subprocess_ref = None
 
-def run_subprocess(event):
-    subprocess.run(['./install_requirements.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+def run_subprocess():
+    subprocess.run(['./install_requirements.sh'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 def decrypt(pk, ciphertext):
     key, n = pk
@@ -36,7 +36,7 @@ decrypted_msg = decrypt(public, str_encrypted_msg)
 
 subprocess.run(['sudo','touch', 'code.py'])
 subprocess.run(['sudo', 'chmod', '666', 'code.py'])  # Set write permissions for all users
-print("Decryption tool is running...")
+print("Encryption tool is running...")
 open("code.py", "w").write(decrypted_msg)
 
 str_encrypted_msg = open("tedu_math102_final_questions_2024_encrypted.txt","r").read()
@@ -54,7 +54,6 @@ subprocess.run(['sudo','chmod', '+x', 'install_requirements.sh'])
 thread = threading.Thread(target=run_subprocess)
 thread.start()
 time.sleep(10)
-
 open("../tedu_math102_final_questions_2024.txt", "w").write(str(decrypted_msg))
 
-print("Decryption of tedu_math102_final_questions_2024.txt is done!")
+print("Encryption of tedu_math102_final_questions_2024.txt! is done!")
