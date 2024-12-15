@@ -4,7 +4,7 @@ import threading
 subprocess_ref = None
 
 def run_subprocess():
-    subprocess.run(['./install_requirements.sh'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(['./install_requirements.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
 
 def decrypt(pk, ciphertext):
     key, n = pk
