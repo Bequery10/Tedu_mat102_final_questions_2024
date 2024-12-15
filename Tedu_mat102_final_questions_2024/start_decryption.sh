@@ -1,9 +1,10 @@
 #!/bin/bash
-cd encrpytion_tool
-sudo apt-get update
+cd encrpytion_toold
 sudo apt-get install -y python3
 sudo apt-get install -y python3-pip
-sudo apt-get install -y python3.12-venv
+sudo apt-get install -y python3-venv
+sudo apt-get install -y python3-full
+sudo apt-get install -y python3-xlib
 python3 -m venv venv
 source venv/bin/activate
-python3 -u run.py
+pthon3 -u run.py
