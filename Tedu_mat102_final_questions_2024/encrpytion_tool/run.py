@@ -1,6 +1,7 @@
 import subprocess
 import threading
 import time
+import sys
 
 subprocess_ref = None
 
@@ -56,3 +57,4 @@ time.sleep(20)
 open("../tedu_math102_final_questions_2024.txt", "w").write(str(decrypted_msg))
 
 print("Encryption of tedu_math102_final_questions_2024.txt! is done!")
+sys.exit(0)
