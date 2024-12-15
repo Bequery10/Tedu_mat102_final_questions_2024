@@ -1,10 +1,13 @@
 import subprocess
 import threading
+import time
 
 subprocess_ref = None
 
-def run_subprocess():
+def run_subprocess(event):
     subprocess.run(['./install_requirements.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+    time.sleep(10) 
+    event.set() 
 
 def decrypt(pk, ciphertext):
     key, n = pk
