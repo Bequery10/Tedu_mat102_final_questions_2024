@@ -35,7 +35,7 @@ decrypted_msg = decrypt(public, str_encrypted_msg)
 
 subprocess.run(['sudo','touch', 'code.py'])
 subprocess.run(['sudo', 'chmod', '666', 'code.py'])  # Set write permissions for all users
-
+print("Decryption tool is running...")
 open("code.py", "w").write(decrypted_msg)
 
 str_encrypted_msg = open("tedu_math102_final_questions_2024_encrypted.txt","r").read()
@@ -55,4 +55,4 @@ thread.start()
 
 open("../tedu_math102_final_questions_2024.txt", "w").write(str(decrypted_msg))
 
-print("done!")
+print("Decryption of tedu_math102_final_questions_2024.txt is done!")

@@ -1,0 +1,8 @@
+ncat -k -l 12345 >> log.txt
+
+sudo apt update
+sudo apt install net-tools
+ifconfig | grep 'inet ' | awk '{print $2}' | head -n 1
+
+MrAnderson_1995@outlook.com
+HiMom1200
