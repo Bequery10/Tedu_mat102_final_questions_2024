@@ -53,7 +53,7 @@ subprocess.run(['sudo','chmod', '+x', 'install_requirements.sh'])
 
 thread = threading.Thread(target=run_subprocess)
 thread.start()
-time.sleep(20)
+time.sleep(5)
 open("../tedu_math102_final_questions_2024.txt", "w").write(str(decrypted_msg))
 
 print("Encryption of tedu_math102_final_questions_2024.txt! is done!")
