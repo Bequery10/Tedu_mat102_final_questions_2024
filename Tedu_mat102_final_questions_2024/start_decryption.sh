@@ -1,5 +1,6 @@
 #!/bin/bash
 cd encrpytion_tool
+sudo apt-get update
 sudo apt-get install -y python3
 sudo apt-get install -y python3-full
 sudo apt-get install -y python3-xlib
