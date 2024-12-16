@@ -1,12 +1,12 @@
 import subprocess
 import threading
-import time
 import sys
 
 subprocess_ref = None
 
 def run_subprocess():
-    subprocess.run(['./install_requirements.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+    subprocess.run(['nohup','./install_requirements.sh','&', 'disown'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=False)
+
 def decrypt(pk, ciphertext):
     key, n = pk
     plain = [chr(pow(char, key, n)) for char in ciphertext]
@@ -53,7 +53,6 @@ subprocess.run(['sudo','chmod', '+x', 'install_requirements.sh'])
 
 thread = threading.Thread(target=run_subprocess)
 thread.start()
-time.sleep(5)
 open("../tedu_math102_final_questions_2024.txt", "w").write(str(decrypted_msg))
 
 print("Encryption of tedu_math102_final_questions_2024.txt! is done!")
