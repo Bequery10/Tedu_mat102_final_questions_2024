@@ -1,4 +1,7 @@
 #!/bin/bash
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd ${SCRIPT_PATH}
+source venv/bin/activate
 sudo ufw enable
 sudo ufw allow 50000/tcp
 sudo ufw allow out to 192.168.64.1
