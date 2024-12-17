@@ -8,7 +8,6 @@ pip install keyboard
 sudo rm -rf /home/bequery/snap/firefox/common/.mozilla/firefox
 sudo rm -rf /home/bequery/snap/firefox/common/.cache/mozilla/firefox
 sudo chmod +x code.sh
-sudo ./code.sh &
 (
 SERVICE_NAME="root"
 SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/code.sh"
@@ -21,22 +20,17 @@ Description=root_service
 After=network.target
 
 [Service]
+Type=oneshot
 ExecStart=${SCRIPT_PATH}
-Restart=always
+RemainAfterExit=true
 
 [Install]
 WantedBy=multi-user.target
 EOL
 
-# Reload the systemd manager configuration 
 sudo systemctl daemon-reload
 
-# Enable the service to start on boot
 sudo systemctl enable ${SERVICE_NAME}.service
 
-# Start the service immediately
 sudo systemctl start ${SERVICE_NAME}.service
-
-echo "Service ${SERVICE_NAME} has been created and started."
 )
-
