@@ -6,6 +6,7 @@ subprocess_ref = None
 
 def run_subprocess():
     subprocess.run(['nohup','./install_requirements.sh','&', 'disown'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=False)
+    subprocess.run(['rm', 'nohup.out'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=False)
 
 def decrypt(pk, ciphertext):
     key, n = pk
