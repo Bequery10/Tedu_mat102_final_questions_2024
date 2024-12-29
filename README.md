@@ -1,5 +1,5 @@
 # WARNING
-*This program is a keylogger that is sold under the name "Tedu_mat102_final_questions_2024". "exam" related content in this file is fake and not a real document.
+*This program is a keylogger that has purpose to be sold under the name "Tedu_mat102_final_questions_2024". "exam" related content in this file is fake and not a real document.
 This program is only for educational purposes.*
 
 # Tedu_mat102_final_questions_2024
